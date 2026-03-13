@@ -1,8 +1,8 @@
 {
-    auto_https off
+    auto_https disable_redirects
 }
 
-https://infing.ch {
+infing.ch {
     root * /usr/share/caddy
     file_server
     try_files {path} /index.html
