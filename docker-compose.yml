@@ -5,6 +5,5 @@ services:
       - "80:80"
     volumes:
       - ./:/usr/share/nginx/html:ro
-    command: >
-      sh -c "printf 'server{listen 80;root /usr/share/nginx/html;index index.html;location /{try_files \$$uri \$$uri/ /index.html;}}' > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
     restart: unless-stopped
