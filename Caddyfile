@@ -8,13 +8,6 @@ infing.ch {
     try_files {path} /index.html
 }
 
-https://187.124.165.100 {
-    tls internal
-    root * /usr/share/caddy
-    file_server
-    try_files {path} /index.html
-}
-
 http://:80 {
     root * /usr/share/caddy
     file_server
