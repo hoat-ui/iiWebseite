@@ -339,6 +339,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+      align-items: stretch;
     }
     .service-card {
       background: rgba(255,255,255,.06);
@@ -373,6 +374,8 @@
     .stacked-card {
       position: relative;
       grid-column: span 1;
+      display: flex;
+      flex-direction: column;
     }
     .stacked-card-stack {
       position: absolute;
@@ -397,6 +400,9 @@
       padding: 28px;
       color: var(--white);
       z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     .stacked-tabs {
       display: flex;
