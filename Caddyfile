@@ -1,8 +1,3 @@
-{
-	acme_ca https://acme.zerossl.com/v2/DV90
-	email info@infing.ch
-}
-
 infing.ch {
 	root * /usr/share/caddy
 	file_server
