@@ -1412,13 +1412,13 @@
               <div class="contact-item-value">041 660 12 22</div>
             </div>
           </a>
-          <a href="mailto:info@infing.ch" class="contact-item" aria-label="E-Mail senden: info@infing.ch">
+          <a href="#" class="contact-item em-link" data-u="info" data-d="infing" data-t="ch" aria-label="E-Mail senden">
             <div class="contact-item-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
             <div>
               <div class="contact-item-label">E-Mail</div>
-              <div class="contact-item-value">info@infing.ch</div>
+              <div class="contact-item-value em-text"></div>
             </div>
           </a>
           <div class="contact-item" style="cursor:default;" role="contentinfo" aria-label="Adresse">
@@ -1532,19 +1532,27 @@
         <h4>Kontakt</h4>
         <ul>
           <li><a href="tel:0416601222"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.17 2.18 2 2 0 012.16 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>041 660 12 22</a></li>
-          <li><a href="mailto:info@infing.ch"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@infing.ch</a></li>
+          <li><a href="#" class="em-link" data-u="info" data-d="infing" data-t="ch"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="em-text"></span></a></li>
           <li><a href="#ueber-uns"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Im Hostettli 23, 6064 Kerns</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2025 iNFiNG GmbH · Im Hostettli 23 · 6064 Kerns</p>
-      <p>Gegründet 2015 · <a href="mailto:info@infing.ch">info@infing.ch</a> · <a href="agb.html">AGB</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+      <p>Gegründet 2015 · <a href="#" class="em-link" data-u="info" data-d="infing" data-t="ch"><span class="em-text"></span></a> · <a href="agb.html">AGB</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
     </div>
   </div>
 </footer>
 
 <script>
+  /* ─── E-Mail Obfuskierung ─── */
+  document.querySelectorAll('.em-link').forEach(function(a) {
+    var addr = a.dataset.u + '@' + a.dataset.d + '.' + a.dataset.t;
+    a.href = 'mailto:' + addr;
+    var span = a.querySelector('.em-text');
+    if (span) span.textContent = addr;
+  });
+
   /* ─── Navbar scroll effect ─── */
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
@@ -1618,7 +1626,7 @@
         status.style.background = 'rgba(220,50,50,.15)';
         status.style.border = '1px solid rgba(220,50,50,.4)';
         status.style.color = '#ff8080';
-        status.textContent = '✗ Fehler beim Senden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an info@infing.ch';
+        status.textContent = '✗ Fehler beim Senden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an ' + ['info','infing.ch'].join('@');
         btn.disabled = false;
         btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Nachricht senden';
       }
