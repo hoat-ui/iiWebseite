@@ -1686,15 +1686,16 @@
 
 <script>
   // Hero content fades + lifts on scroll
-  // Stacked card tabs
+  // Stacked card tabs — only affect tabs within the same card
   document.querySelectorAll('.stacked-tab').forEach(function(tab) {
     tab.addEventListener('click', function() {
       var key = this.dataset.tab;
-      document.querySelectorAll('.stacked-tab').forEach(function(t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-      document.querySelectorAll('.stacked-panel').forEach(function(p) { p.classList.remove('active'); });
+      var card = this.closest('.stacked-card-inner');
+      card.querySelectorAll('.stacked-tab').forEach(function(t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      card.querySelectorAll('.stacked-panel').forEach(function(p) { p.classList.remove('active'); });
       this.classList.add('active');
       this.setAttribute('aria-selected','true');
-      document.getElementById('tab-' + key).classList.add('active');
+      card.querySelector('#tab-' + key).classList.add('active');
     });
   });
 
