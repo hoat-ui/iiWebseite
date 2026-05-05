@@ -95,6 +95,24 @@
       font-size: .88rem;
     }
 
+    .pdf-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: rgba(129,254,0,.1);
+      border: 1px solid rgba(129,254,0,.3);
+      border-radius: 8px;
+      color: var(--blue);
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 500;
+      transition: background .2s, border-color .2s;
+    }
+    .pdf-download:hover { background: rgba(129,254,0,.2); border-color: var(--blue); }
+    .pdf-download svg { width: 16px; height: 16px; }
+
     /* ─── AGB sections ─── */
     .agb-section {
       margin-bottom: 40px;
@@ -161,6 +179,10 @@
   <div class="page-header">
     <h1>Allgemeine <span>Geschäftsbedingungen</span></h1>
     <p class="meta">iNFiNG GmbH · Im Hostettli 23 · 6064 Kerns OW · Stand: 1. Januar 2026</p>
+    <a href="agb.pdf" download="iNFiNG_AGB.pdf" class="pdf-download">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      AGB als PDF herunterladen
+    </a>
   </div>
 
   <div class="agb-section">
