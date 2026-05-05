@@ -157,6 +157,18 @@
     }
 
     footer a:hover { color: var(--cyan); }
+
+    @media print {
+      nav { display: none !important; }
+      .page-wrap { padding-top: 40px; }
+      .pdf-download { display: none !important; }
+      body { background: #fff; color: #000; }
+      .page-header h1, .page-header h1 span { color: #000; }
+      .agb-section h2 { color: #2a7a00; border-left-color: #2a7a00; }
+      .agb-section p { color: #222; }
+      .page-header .meta { color: #555; }
+      footer { display: none !important; }
+    }
   </style>
 </head>
 <body>
